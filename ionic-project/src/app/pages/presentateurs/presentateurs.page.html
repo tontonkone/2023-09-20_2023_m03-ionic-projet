@@ -2,6 +2,9 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let presentator of presentators" [routerLink]="['/presentateur', presentator.id]">
+      <ion-avatar>
+        <img [src]="baseUrl + presentator.photoUrl" alt="">
+      </ion-avatar>
       <ion-label>
         {{ presentator.name}}
       </ion-label>

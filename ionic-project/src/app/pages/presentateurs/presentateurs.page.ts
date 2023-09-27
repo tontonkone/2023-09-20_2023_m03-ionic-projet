@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Presentateur } from 'src/app/models/presentateur';
 import { PresentateurService } from 'src/app/services/presentateur.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-presentateurs',
@@ -9,6 +10,7 @@ import { PresentateurService } from 'src/app/services/presentateur.service';
   styleUrls: ['./presentateurs.page.scss'],
 })
 export class PresentateursPage implements OnInit {
+  baseUrl = 'https://devfest2018.gdgnantes.com/';
 
   pageTitle = "Présentateurs";
 
