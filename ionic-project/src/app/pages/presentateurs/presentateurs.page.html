@@ -1,13 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>presentateurs</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [pageTitle]="pageTitle"></app-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let presentator of presentators" [routerLink]="['/presentateur', presentator.id]">
+      <ion-label>
+        {{ presentator.name}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">presentateurs</ion-title>
-    </ion-toolbar>
-  </ion-header>
 </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PresentateurDetailsPageRoutingModule } from './presentateur-details-routing.module';
 
 import { PresentateurDetailsPage } from './presentateur-details.page';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PresentateurDetailsPageRoutingModule
+    PresentateurDetailsPageRoutingModule,
+    SharedModule
   ],
   declarations: [PresentateurDetailsPage]
 })

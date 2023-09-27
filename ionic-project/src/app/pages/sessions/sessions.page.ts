@@ -10,6 +10,7 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class SessionsPage implements OnInit {
 
+  pageTitle = 'Sessions';
   sessions: Session[] = [];
 
   constructor(

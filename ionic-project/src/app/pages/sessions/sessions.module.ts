@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { SessionsPageRoutingModule } from './sessions-routing.module';
 
 import { SessionsPage } from './sessions.page';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SessionsPageRoutingModule
+    SessionsPageRoutingModule,
+    SharedModule
   ],
-  declarations: [SessionsPage]
+  declarations: [
+    SessionsPage]
 })
 export class SessionsPageModule {}

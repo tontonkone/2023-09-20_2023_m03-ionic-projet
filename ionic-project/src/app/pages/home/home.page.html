@@ -1,12 +1,4 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Conférence</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [pageTitle]="pageTitle"></app-header>
 <ion-content>
   <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
   <ion-card  class="ion-text-center">
@@ -16,7 +8,7 @@
     <ion-card-content>Date de début - Date de fin</ion-card-content>
   </ion-card>
 
-  <ion-button size="full" color="primary" > Voir les présentateurs</ion-button>
+  <ion-button size="full" color="primary" [routerLink]="['/sessions']"> Voir les présentateurs</ion-button>
   <ion-button size="full" color="primary" > Voir les sessions</ion-button>
   
 </ion-content>
