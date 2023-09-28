@@ -34,9 +34,6 @@ export class PresentateursPage implements OnInit {
     await loading.present();
     this._presentateurService.getAllPresentators().subscribe(
       data => {
-        if (data.hasOwnProperty(101)){
-          const dataInfo = data[101];
-        }
         loading.dismiss()
         this.presentators = Object.values(data);
         console.log(data);

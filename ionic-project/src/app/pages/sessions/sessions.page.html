@@ -1,7 +1,7 @@
 <app-header [pageTitle]="pageTitle"></app-header>
 <ion-content >
   <ion-list>
-    <ion-item  *ngFor="let session of sessions" [routerLink]="['/sessions', session.id]" >
+    <ion-item  *ngFor="let session of sessions" [routerLink]="['/session', session.id]" >
       <ion-label>
         {{ session.title}}
       </ion-label>
