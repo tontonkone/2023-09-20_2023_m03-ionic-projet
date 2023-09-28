@@ -1,6 +1,5 @@
 <app-header [pageTitle]="pageTitle"></app-header>
 <ion-content *ngIf="session">
-
   <img *ngIf="session.image" alt="session" [src]="baseUrl + session.image" />
   <ion-content>
     <ion-label>
@@ -9,5 +8,15 @@
       <p>{{session.description}}</p>
       <h3>{{session.type}}</h3>
     </ion-label>
+    <ion-list *ngIf="presentateurs">
+        <ion-label class="ion-text-center">
+          <h1>Les Présentateurs</h1>
+        </ion-label>
+        <ion-item *ngFor="let presentateur of presentateurs " [routerLink]="['/presentateur', presentateur.id]">
+          <ion-label>
+            {{ presentateur.name}}
+          </ion-label>
+        </ion-item>
+      </ion-list>
   </ion-content>
 </ion-content>

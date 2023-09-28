@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Presentateur } from 'src/app/models/presentateur';
 import { Session } from 'src/app/models/session';
 import { PresentateurService } from 'src/app/services/presentateur.service';
 import { SessionService } from 'src/app/services/session.service';
@@ -16,6 +17,8 @@ export class SessionsDetailsPage implements OnInit {
   pageTitle = 'Session Details';
   id!: number;
   session!: Session;
+  presentateurs: Presentateur[] = []; 
+
 
   constructor(
     private _presentateurService: PresentateurService,
@@ -25,7 +28,8 @@ export class SessionsDetailsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadingSessionsDetails()
+    this.loadingSessionsDetails();
+
   }
 
   async loadingSessionsDetails(){
@@ -43,11 +47,29 @@ export class SessionsDetailsPage implements OnInit {
       data => {
         if (data.hasOwnProperty(this.id)) {
           this.session = data[this.id];
-          console.log("information ", this.session);
+          this.loadingPresentatorBySession();
           loading.dismiss()
         }
       }
     )
   }
+
+  loadingPresentatorBySession(){
+    if(this.session && this.session.speakers){
+      this.session.speakers.forEach(speakerId =>{
+        this._presentateurService.getAllPresentators()
+        .subscribe(
+          data => {
+            console.log(data)
+            if (data.hasOwnProperty(speakerId)){
+              this.presentateurs.push(data[speakerId]);
+              console.log("presentateur",this.presentateurs)
+            }
+          }
+        )
+      })
+    }
+  }
+
 
 }
