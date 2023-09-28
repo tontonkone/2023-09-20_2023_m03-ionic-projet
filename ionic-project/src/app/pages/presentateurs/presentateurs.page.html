@@ -3,7 +3,7 @@
   <ion-list>
     <ion-item *ngFor="let presentator of presentators" [routerLink]="['/presentateur', presentator.id]">
       <ion-avatar>
-        <img [src]="baseUrl + presentator.photoUrl" alt="">
+        <img [src]="baseUrl + presentator.photoUrl" alt="photo presentateur">
       </ion-avatar>
       <ion-label>
         {{ presentator.name}}

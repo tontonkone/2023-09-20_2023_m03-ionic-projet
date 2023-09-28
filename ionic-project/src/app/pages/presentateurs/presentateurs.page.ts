@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./presentateurs.page.scss'],
 })
 export class PresentateursPage implements OnInit {
-  baseUrl = 'https://devfest2018.gdgnantes.com/';
+  baseUrl = environment.imageUrl;
 
   pageTitle = "Présentateurs";
 
@@ -34,12 +34,16 @@ export class PresentateursPage implements OnInit {
     await loading.present();
     this._presentateurService.getAllPresentators().subscribe(
       data => {
-
+        if (data.hasOwnProperty(101)){
+          const dataInfo = data[101];
+        }
         loading.dismiss()
         this.presentators = Object.values(data);
         console.log(data);
       }
     )
   }
+
+
 
 }
