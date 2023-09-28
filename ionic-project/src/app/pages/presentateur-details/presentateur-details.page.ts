@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { Presentateur } from 'src/app/models/presentateur';
+import { Session } from 'src/app/models/session';
 import { PresentateurService } from 'src/app/services/presentateur.service';
+import { SessionService } from 'src/app/services/session.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,14 +17,16 @@ export class PresentateurDetailsPage implements OnInit {
   id!: number;
   presentateur!: Presentateur;
   baseUrl = environment.imageUrl;
-
+  sessions: Session[] = [];
   constructor(
     private _presentateurService: PresentateurService,
+    private _sessionService: SessionService,
     private _loadingCtrl: LoadingController,
     private _route: ActivatedRoute) {}
 
   ngOnInit() {
     this.loadingPresentateurDetails();
+    this.loadingSessionByPresentator();
   }
 
   
@@ -49,6 +53,14 @@ export class PresentateurDetailsPage implements OnInit {
         }
       }
     )
+  }
+
+  loadingSessionByPresentator(){
+    this._sessionService.getSessionByPresentator(+this.id)
+    .subscribe(data => {
+      this.sessions = data;
+      console.log("sessions", this.sessions);
+    })
   }
 
 }

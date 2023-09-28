@@ -1,12 +1,24 @@
 <app-header [pageTitle]="pageTitle"></app-header>
-<ion-card *ngIf="presentateur">
-  <img alt="presentateur" [src]="baseUrl + presentateur.photoUrl" />
-  <ion-card-header>
-    <ion-card-title>{{presentateur.name}}</ion-card-title>
-    <ion-card-subtitle>{{presentateur.country}}</ion-card-subtitle>
-  </ion-card-header>
+<ion-content *ngIf="presentateur">
+    <img alt="presentateur" [src]="baseUrl + presentateur.photoUrl" />
+  <ion-item>
+    <ion-label>
+      <h2>{{presentateur.name}}</h2>
+      <p>{{presentateur.country}}</p>
+      <p>{{presentateur.shortBio}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-content >
 
-  <ion-card-content>
-    {{presentateur.shortBio}}
-  </ion-card-content>
-</ion-card>
+    <ion-list>
+      <ion-label class="ion-text-center"><h1>Les Présentations</h1> </ion-label>
+      <ion-item *ngFor="let session of sessions" [routerLink]="['/session', session.id]">
+        <ion-label>
+          {{ session.title}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>
+
+
