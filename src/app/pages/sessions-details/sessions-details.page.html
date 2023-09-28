@@ -13,6 +13,9 @@
           <h1>Les Présentateurs</h1>
         </ion-label>
         <ion-item *ngFor="let presentateur of presentateurs " [routerLink]="['/presentateur', presentateur.id]">
+              <ion-avatar>
+                <img [src]="baseUrl + presentateur.photoUrl" alt="photo presentateur">
+              </ion-avatar>
           <ion-label>
             {{ presentateur.name}}
           </ion-label>
